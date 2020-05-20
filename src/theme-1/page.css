@@ -1,0 +1,52 @@
+/* ----------------------------------------------------------------------- */
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.5em; }
+
+h1, .h1 {
+  font-size: 3.3125rem;
+  line-height: 1.15em; }
+
+h2, .h2 {
+  font-size: 2.25rem; }
+
+h3, .h3 {
+  font-size: 1.5625rem;
+  line-height: 1.4em;
+  margin: 20px 0 10px; }
+
+h4, .h4 {
+  font-size: 1.125rem;
+  line-height: 1.4em;
+  font-weight: 300; }
+
+h5, .h5 {
+  font-size: 1.0625rem;
+  line-height: 1.4em;
+  margin-bottom: 15px; }
+
+h6, .h6 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500; }
+
+body {
+  background-color: #eee;
+  color: #3C4858;
+  font-weight: 300; }
+
+.serif-font {
+  font-family: "Roboto Slab", "Times New Roman", serif; }
+
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent; }
+  *:focus {
+    outline: 0; }
+    

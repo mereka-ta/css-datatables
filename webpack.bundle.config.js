@@ -3,22 +3,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 let theme = parseInt( process.env.npm_config_theme );
 theme = (theme>=1 && theme<=5) ? theme : 1;
+
 module.exports = { 
 
     entry: [
       './src/theme-'+theme+'/style.css',
       'jquery',
       'datatables.net',
-      'datatables.net-autofill',
       'datatables.net-bs4',
-      'datatables.net-buttons',
       'datatables.net-responsive',
-      './src/theme-'+theme+'/main.js',
+      './src/theme-'+theme+'/extend.js',
     ],
+
     output: {
       path: path.resolve(__dirname, 'dist/theme-'+theme),
       filename: 'jquery.dataTables.min.js'
     },
+
     node: {
       child_process: 'empty',
       module: 'empty',
@@ -27,6 +28,7 @@ module.exports = {
 
     module: {
       rules: [
+        // global jquery
         {
           test: require.resolve('jquery'),
           use: [{
@@ -38,6 +40,7 @@ module.exports = {
             options: '$'
           }]
         },
+        // css
         {
           test: /\.css$/,
           use: [
@@ -45,6 +48,7 @@ module.exports = {
             'css-loader'
           ]
         },
+        // images
         {
           test: /\.(gif|svg|jpg|jpeg|png)$/,
           loader: 'file-loader',
@@ -57,10 +61,12 @@ module.exports = {
     },
 
     plugins: [
+      // minify html
       new HtmlWebpackPlugin({
           filename: 'index.html',
           template: 'src/theme-'+theme+'/index.html',
           minify: true,
+          inject: false
       })
     ],
 
