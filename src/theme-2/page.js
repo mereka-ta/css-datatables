@@ -20,10 +20,10 @@ $(document).ready(function() {
       search: '_INPUT_',
       searchPlaceholder: 'Search records',
     },
-    initCompleteThen: function() {
+    initCompleteThen: function(dt) {
       console.log('done init');
     },
-    drawCallbackThen: function() {
+    drawCallbackThen: function(dt) {
       console.log('redrawn');
     }
   });

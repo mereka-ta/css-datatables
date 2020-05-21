@@ -16,10 +16,6 @@ $(document).ready(function() {
         className: 'dt-details',
         targets: '_all'
     }],
-    language: {
-      search: '_INPUT_',
-      searchPlaceholder: 'Search records',
-    },
     initCompleteThen: function(dt) {
       console.log('done init');
     },

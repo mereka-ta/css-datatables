@@ -15,13 +15,13 @@ const dt_extend = {
         $('.dataTables_length').parent().addClass('dataTables_length_parent');
         $('.dataTables_filter').parent().addClass('dataTables_filter_parent');
         if( typeof opt.oInstance.api().init().initCompleteThen !== 'undefined' ) 
-            opt.oInstance.api().init().initCompleteThen();
+            opt.oInstance.api().init().initCompleteThen( opt.oInstance.api() );
     },
 
     redraw: function(opt=false) {
         dt_extend.resize(false, opt.oInstance.api(), [dt_extend.hideDetailsIcon]);
         if( typeof opt.oInstance.api().init().drawCallbackThen !== 'undefined' ) 
-            opt.oInstance.api().init().drawCallbackThen();
+            opt.oInstance.api().init().drawCallbackThen( opt.oInstance.api() );
     },
 
     resize: function(e, dt, cols) {
@@ -37,7 +37,7 @@ const dt_extend = {
             dt_extend.hideDetailsIcon = false;
         }
         if( typeof dt.init().onResponsive !== 'undefined' ) 
-            dt.init().onResponsive();
+            dt.init().onResponsive( dt );
     }
 };
 
