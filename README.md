@@ -1,19 +1,20 @@
 ### Things to note
 
 - These libraries are required, they are bundled together by default (can exclude any of it in ***webpack config***):
- - [jquery](https://www.npmjs.com/package/jquery)
- - [datatables.net](https://www.npmjs.com/package/datatables.net)
- - [datatables.net-bs4](https://www.npmjs.com/package/datatables.net-bs4)
- - [datatables.net-responsive](https://www.npmjs.com/package/datatables.net-responsive)
+  - [jquery](https://www.npmjs.com/package/jquery)
+  - [datatables.net](https://www.npmjs.com/package/datatables.net)
+  - [datatables.net-bs4](https://www.npmjs.com/package/datatables.net-bs4)
+  - [datatables.net-responsive](https://www.npmjs.com/package/datatables.net-responsive)
+
 - If any of ***the above*** is excluded in the bundle, the external library(s) must be included separately
 
 ----
 
 # css-datatables
 
-![](fav.png)
+![](examples/fav.png)
 
-###Examples
+### Examples
 
 <p style="text-align: center; text-decoration:underline; font-size:2rem; font-weight:bold">[DEMO](https://mereka-ta.github.io/css-datatables)</p>
 
@@ -39,9 +40,9 @@ Theme-5:
 
 ----
 
-###Usage
+### Usage
 
-####Include the script
+#### Include the script
 
 `<script type="text/javascript" src="https://gitcdn.xyz/repo/mereka-ta/css-datatables/master/dist/theme-1/jquery.dataTables.min.js"></script>`
 
@@ -49,7 +50,7 @@ There are 5 variations of the styles. Simply rename the `theme-1` in the path to
 
 * *this method is for direct use. If bundled with any changes, the script must be included locally*
 
-####HTML
+#### HTML
 
 ```html
 ...
@@ -88,7 +89,7 @@ There are 5 variations of the styles. Simply rename the `theme-1` in the path to
 ...
 ```
 
-####Javascript
+#### Javascript
 
 ```javascript
 ...
@@ -109,17 +110,23 @@ More options: [DataTables Options](https://datatables.net/reference/option/)
 
 ----
 
-###Custom Bundle (Webpack 4)
+### Custom Bundle (Webpack 4)
 
 Make changes & bundle locally:
 
 1. Clone this repo
-2. `$ cd path/of/the/repo`
-3. `$ npm install`
-4. Edit in "webpack.bundle.config.js" and "/src/theme-`1`|`2`|`3`|`4`|`5`"
-5. Start bundle by specifying `--theme=` `1` | `2` | `3` | `4` | `5` :
-	`$ npm run bundle --theme=1`
-6. Bundled files are in directory "/dist/theme-`1`|`2`|`3`|`4`|`5`"
 
+2. `$ cd path/of/the/repo`
+
+3. `$ npm install`
+
+4. Edit in "webpack.bundle.config.js" and "/src/theme-`1`|`2`|`3`|`4`|`5`"
+
+5. Start bundle by specifying `--theme=` `1` | `2` | `3` | `4` | `5` :
+	```
+	$ npm run bundle --theme=1
+	```
+
+6. Bundled files are in directory "/dist/theme-`1`|`2`|`3`|`4`|`5`"
 
 ----
