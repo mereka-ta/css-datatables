@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>css-datatables</title>
+<link rel="icon" href="examples/fav.png" />
+<link rel="stylesheet" type="text/css" href="src/helpers.css">
+
+<style type="text/css">
+body {
+  background: #ddd;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+}
+
+.embed-responsive {
+  flex-direction: column;
+}
+iframe {
+	position: initial!important;
+}
+
+.credits {
+  text-align: right;
+  margin-top: 15px;
+}
+.credits a {
+  color: #222;
+  background-color: #f8dc3d;
+  font-family: "Segoe UI", "Ubuntu", monospace;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+/** Layout fixes **/
+.credits a {
+  margin-right: calc((100% - 1230px)/2);
+}
+
+@media (max-width: 1240px) {
+  .credits a {
+    margin-right: 0px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div align="center">
+	<div class="wrap">
+		<div class="d-flex flex-row justify-content-center">
+	    	<img src="examples/fav.png" width="100" />
+	    	<h3 class="align-self-center">css-datatables</h3>
+	    </div>	
+
+	    <div class="d-flex flex-column justify-content-center">
+	    	<h4>
+	    		Select style :
+		    	<select id="selectTheme">
+		    		<option value="1">Theme 1</option>
+		    		<option value="2">Theme 2</option>
+		    		<option value="3">Theme 3</option>
+		    		<option value="4">Theme 4</option>
+		    		<option value="5">Theme 5</option>
+		    	</select>
+	    	</h4>
+
+	    	<div class="d-flex flex-column embed-responsive mt-1">
+	    		<iframe class="embed-responsive-item d-none" src="dist/theme-1/index.html" scrolling="no"></iframe>
+	    	</div>
+	    </div>
+	</div>
+
+	<div class="credits">
+	  <a target="_blank" href="https://github.com/mereka-ta/css-datatables">@mereka-ta/css-datatables</a>
+	<div>
+</div>
+
+<script type="text/javascript">
+Element.prototype.addClass = function (classToAdd) {
+  var classes = this.className.split(' ')
+  if (classes.indexOf(classToAdd) === -1) classes.push(classToAdd)
+  this.className = classes.join(' ')
+}
+
+//
+Element.prototype.removeClass = function (classToRemove) {
+  var classes = this.className.split(' ')
+  var idx =classes.indexOf(classToRemove)
+  if (idx !== -1) classes.splice(idx,1)
+  this.className = classes.join(' ')
+}
+
+function iframeLoaded(el) {
+	setTimeout(function() {
+		el.removeClass('d-none');
+		el.style.height = el.contentWindow.document.body.scrollHeight + 'px';
+
+		el.contentWindow.document.querySelector('select[name="datatables_length"]').addEventListener('change', function(e) {
+			el.style.height = el.contentWindow.document.body.scrollHeight + 'px';
+		}, false);
+	}, 2000);
+}
+
+document.querySelector('#selectTheme').addEventListener('change', function(e) {
+	document.querySelector('iframe').addClass('d-none');
+	document.querySelector('iframe').src = 'dist/theme-'+this.value+'/index.html';
+}, false);
+
+document.querySelector('iframe').addEventListener('load', function(e) {
+	iframeLoaded(this);
+}, false);
+
+window.addEventListener('resize', function(e) {
+	document.querySelector('iframe').style.height = document.querySelector('iframe').contentWindow.document.body.scrollHeight + 'px';
+}, false);
+</script>
+
+</body>
+</html>
