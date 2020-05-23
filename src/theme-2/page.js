@@ -6,16 +6,6 @@ $(document).ready(function() {
       [10, 25, 50, -1],
       [10, 25, 50, 'All']
     ],
-    responsive: {
-        details: {
-            type: 'column',
-            target: 'td'
-        }
-    },
-    columnDefs: [{
-        className: 'dt-details',
-        targets: '_all'
-    }],
     language: {
       search: '_INPUT_',
       searchPlaceholder: 'Search records',

@@ -44,6 +44,16 @@ const dt_extend = {
 
 // override all datatables initialization
 $.extend(true, $.fn.dataTable.defaults, {
+    responsive: {
+        details: {
+            type: 'column',
+            target: 'td'
+        }
+    },
+    columnDefs: [{
+        className: 'dt-details',
+        targets: '_all'
+    }],
     language: { 
         paginate: { previous: '<span class="material-icons">chevron_left</span>', next: '<span class="material-icons">chevron_right</span>' },
         search: '_INPUT_',

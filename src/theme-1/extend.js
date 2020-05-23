@@ -43,6 +43,16 @@ const dt_extend = {
 
 // override all datatables initialization
 $.extend(true, $.fn.dataTable.defaults, {
+    responsive: {
+        details: {
+            type: 'column',
+            target: 'td'
+        }
+    },
+    columnDefs: [{
+        className: 'dt-details',
+        targets: '_all'
+    }],
     initComplete: dt_extend.loadTheme,
     drawCallback: dt_extend.redraw
 });
